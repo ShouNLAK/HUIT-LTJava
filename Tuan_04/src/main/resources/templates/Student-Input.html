@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form class="col-md-4 col-md-offset-4" th:action="@{/Student-Result}" method="POST" th:object="${Student}">
+        <div class="form-group">
+            <b> First Name :  </b> <input type="text" th:field="*{firstName}" placeholder="Enter First Name" required class="form-control"/>
+            <b> Last Name :  </b> <input type="text" th:field="*{lastName}" placeholder="Enter Last Name" required class="form-control"/>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

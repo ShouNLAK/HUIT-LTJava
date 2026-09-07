@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/Demo.css}">
+</head>
+<body>
+    <div class="SV">
+        <p> Họ và tên sinh viên : <span th:text="${fullName}"/> <p/>
+        <p> Tuổi :  <span th:text="${age}"/> <p/>
+        <p> Chuyên ngành :  <span th:text="${major}"/> <p/>
+    </div>
+
+</body>
+</html>

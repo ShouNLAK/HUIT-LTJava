@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="col-md-4 col-md-offset-4" th:action="@{/Result}" method="POST" th:object="${Student_Muti}">
+    <div class="form-group">
+        <div >
+            <b> First Name :  </b> <input type="text" th:field="*{firstName}" placeholder="Enter First Name" required class="form-control"/>
+        </div>
+        <div>
+            <b> Last Name :  </b> <input type="text" th:field="*{lastName}" placeholder="Enter Last Name" required class="form-control"/>
+        </div>
+       <div>
+           <select name="country" th:field="*{country}" class="form-control">
+               <option value="BR">Brazil</option>
+               <option value="FR">France</option>
+               <option value="DE">Germany</option>
+               <option value="IN">India</option>
+           </select>
+       </div>
+        <div class="input-group">
+            <i>Favorite Programming Language : </i>
+            <input type="radio" th:field="*{favLang}" th:value="Go"> <label>Go</label>
+            <input type="radio" th:field="*{favLang}" th:value="Java"/> <label>Java</label>
+            <input type="radio" th:field="*{favLang}" th:value="Python"/> <label>Python</label>
+        </div>
+        <div class="input-group">
+            <i>Favorite Operating Systems : </i>
+            <input type="checkbox" th:field="*{favOS}" th:value="Linux"> <label>Linux</label>
+            <input type="checkbox" th:field="*{favOS}" th:value="MacOS"/> <label>MacOS</label>
+            <input type="checkbox" th:field="*{favOS}" th:value="Windows"/> <label>Windows</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+</body>
+</html>
