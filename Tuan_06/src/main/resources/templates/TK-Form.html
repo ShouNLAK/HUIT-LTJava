@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lưu Tài khoản</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Lưu thông tin tài khoản</h4>
+        </div>
+        <div class="card-body">
+            <form action="#" th:action="@{/Luu}" th:object="${taiKhoan}" method="POST">
+
+                <input type="hidden" th:field="*{ID}" />
+
+                <div class="mb-3">
+                    <label for="FirstName" class="form-label">Họ</label>
+                    <input type="text" th:field="*{firstName}" class="form-control" id="FirstName" placeholder="Nhập họ">
+                </div>
+
+                <div class="mb-3">
+                    <label for="LastName" class="form-label">Tên</label>
+                    <input type="text" th:field="*{lastName}" class="form-control" id="LastName" placeholder="Nhập tên">
+                </div>
+
+                <div class="mb-3">
+                    <label for="Email" class="form-label">Email</label>
+                    <input type="email" th:field="*{email}" class="form-control" id="Email" placeholder="Nhập email">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Lưu</button>
+                <a th:href="@{/}" class="btn btn-secondary">Quay lại danh sách</a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
