@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách sản phẩm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">Danh sách sản phẩm</h4>
+            <a th:href="@{/Add}" class="btn btn-light btn-sm">Thêm sản phẩm</a>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/}" method="get" class="mb-3 d-flex">
+                <input type="text" name="keyword" th:value="${keyword}" class="form-control me-2" placeholder="Nhập tên sản phẩm ..."/>
+                <button type="submit" class="btn btn-secondary">Tìm kiếm</button>
+            </form>
+
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                <tr>
+                    <th>Mã sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Mô tả</th>
+                    <th>Danh mục</th>
+                    <th>Hành động</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="SP : ${DSSP}">
+                    <td th:text="${SP.maSP}"></td>
+                    <td th:text="${SP.tenSP}"></td>
+                    <td th:text="${SP.donGia}"></td>
+                    <td th:text="${SP.soLuong}"></td>
+                    <td th:text="${SP.moTa}"></td>
+                    <td th:text="${SP.maDM.tenDM}"></td>
+                    <td>
+                        <a th:href="@{/Detail(maSP=${SP.maSP})}" class="btn btn-primary btn-sm">Chi tiết</a>
+                        <a th:href="@{/Update(maSP=${SP.maSP})}" class="btn btn-warning btn-sm">Sửa</a>
+                        <a th:href="@{/Delete(maSP=${SP.maSP})}" class="btn btn-danger btn-sm"
+                           onclick="if (!(confirm('Bạn có chắc chắn muốn xóa sản phẩm này?'))) return false">Xóa</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

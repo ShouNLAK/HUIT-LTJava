@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lưu Tài khoản</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Lưu thông tin sản phẩm</h4>
+        </div>
+        <div class="card-body">
+            <form action="#" th:action="@{/Save}" th:object="${SP}" method="POST">
+
+                <input type="hidden" th:field="*{maSP}" />
+
+                <div class="mb-3">
+                    <label for="TenSP" class="form-label">Tên sản phẩm</label>
+                    <input type="text" th:field="*{tenSP}" class="form-control" id="TenSP" placeholder="Nhập tên sản phẩm">
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="DonGia" class="form-label">Đơn giá</label>
+                    <input type="text" th:field="*{donGia}" class="form-control" id="DonGia" placeholder="Nhập đơn giá">
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="SoLuong" class="form-label">Số lượng</label>
+                    <input type="text" th:field="*{soLuong}" class="form-control" id="SoLuong" placeholder="Nhập số lượng">
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="MoTa" class="form-label">Mô tả</label>
+                    <input type="text" th:field="*{moTa}" class="form-control" id="MoTa" placeholder="Nhập mô tả">
+                </div>
+
+                <label for="DanhMuc">Chọn danh mục:</label>
+                <select name="maDM" id="DanhMuc" th:field="*{maDM}">
+                    <option value="">-- Chọn danh mục --</option>
+                    <option th:each="DM : ${DanhMuc}"
+                            th:value="${DM.maDM}"
+                            th:text="${DM.tenDM}">
+                    </option>
+                </select>
+
+
+                <button type="submit" class="btn btn-primary">Lưu</button>
+                <a th:href="@{/}" class="btn btn-secondary">Quay lại danh sách</a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
